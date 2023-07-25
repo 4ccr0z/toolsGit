@@ -14,7 +14,7 @@ git merge --continue
 git checkout $branch
 git rebase $branchrebase
 while [ $(git diff --name-only --diff-filter=U | wc -l) != "0" ]; do
-  git diff --name-only --diff-filter=U | xargs git checkout --theirs
+  git diff --name-only --diff-filter=U | xargs git checkout $branchrebase
   git add .
   git rebase --continue
 done;
